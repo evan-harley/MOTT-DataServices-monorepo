@@ -21,28 +21,55 @@ The results are saved to a CSV file named `DataVolumeReport_[schema_name].csv`, 
 Before running the script, you'll need the following:
 
 1.  **Python:**  Make sure you have Python 3 installed (preferably 3.6 or later).
-2.  **Dependencies:** Install the required Python packages using pip and the provided `requirements.txt` file.  Navigate to the `data-volume-query` directory and run:
+2.  **Create the environment:** Navigate to the `data-volume-query` directory in your terminal:
 
-    ```bash
+        ``` 
+        cd MOTT-DataServices-monorepo/data-volume-query
+        ```
+
+        Then, create a virtual environment (you can name it anything; `.venv` is a common convention):
+
+        ```
+        python -m venv .venv
+        ```
+
+    *   **Activate the environment:**
+
+        *   **On Windows (Command Prompt):**
+
+            ```
+            .venv\Scripts\activate.bat
+            ```
+
+        *   **On Windows (PowerShell):**
+
+            ```
+            .venv\Scripts\Activate.ps1
+            ```
+
+        You should see `(.venv)` (or your environment name) at the beginning of your command prompt, indicating that the virtual environment is active.
+3.  **Dependencies:** Install the required Python packages using pip and the provided `requirements.txt` file.  Navigate to the `data-volume-query` directory and run:
+
+    ```
     pip install -r requirements.txt
     ```
     This will install `cx_Oracle`, `pandas` and `tqdm`.
-3.  **Oracle Client Libraries:** You'll need the Oracle Instant Client (or a full Oracle client installation) to connect to the database.  This is *separate* from `cx_Oracle`.  You can download it from the Oracle website:
+4.  **Oracle Client Libraries:** You'll need the Oracle Instant Client (or a full Oracle client installation) to connect to the database.  This is *separate* from `cx_Oracle`.  You can download it from the Oracle website:
     [https://www.oracle.com/database/technologies/instant-client/downloads.html](https://www.oracle.com/database/technologies/instant-client/downloads.html)
     Make sure you install the correct version of oracle client that is compatible with your Oracle Server. You also need to configure environment variables so that python knows where to find your Oracle client libraries.
-4.  **Database Credentials:** You'll need a valid username, password, and connection details (host, port, service name) for the Oracle database you want to analyze.
+5.  **Database Credentials:** You'll need a valid username, password, and connection details (host, port, service name) for the Oracle database you want to analyze.
 
 ## How to Run
 
 1.  **Navigate to the Script Directory:** Open a terminal or command prompt and navigate to the `data-volume-query/src` directory within the monorepo:
 
-    ```bash
+    ```
     cd MOTT-DataServices-monorepo/data-volume-query/src
     ```
 
 2.  **Execute the Script:** Run the script using:
 
-    ```bash
+    ```
     python main.py
     ```
 4.  **Provide Input:** The script will prompt you for the following information:
