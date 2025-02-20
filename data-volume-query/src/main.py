@@ -48,12 +48,12 @@ def get_summary_data(conn: cx_Oracle.Connection, schema_name: str = "APP_CPS"):
 
 if __name__ == '__main__':
 
-    user_name = input("Please enter your username")
-    password = input("Please enter your password")
-    host = input("Please enter the host uri for the database")
-    port = input("Please enter the port number the server is listening on")
-    service = input("Please enter the name of the service (eg. PRD11)")
-    schema = input("Please enter the schema name")
+    user_name = input("Please enter your username: ")
+    password = input("Please enter your password: " )
+    host = input("Please enter the host uri for the database: ")
+    port = input("Please enter the port number the server is listening on: ")
+    service = input("Please enter the name of the service (eg. PRD11): ")
+    schema = input("Please enter the schema name: ")
 
     dsn = cx_Oracle.makedsn(host, port, service)
     with cx_Oracle.connect(user_name, password, dsn) as connection:
