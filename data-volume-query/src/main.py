@@ -3,7 +3,7 @@ import cx_Oracle
 from tqdm.auto import tqdm
 
 
-def get_summary_data(conn: cx_Oracle.Connection, schema_name: str = "APP_CPS"):
+def get_oracle_summary_data(conn: cx_Oracle.Connection, schema_name: str = "APP_CPS"):
     data = []
     with conn.cursor() as cursor:
         for row in cursor.execute(f'''
@@ -57,6 +57,6 @@ if __name__ == '__main__':
 
     dsn = cx_Oracle.makedsn(host, port, service)
     with cx_Oracle.connect(user_name, password, dsn) as connection:
-        get_summary_data(connection, schema)
+        get_oracle_summary_data(connection, schema)
 
 
